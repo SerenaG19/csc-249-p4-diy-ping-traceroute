@@ -1,0 +1,11 @@
+﻿Domain,IP,Location,Distance (n mi),Ping Date,Avg RTT,Trace Date,Trace RTT,# Hops
+umaine.edu,130.111.46.127,46.6828 (lat) / -68.0169 (long),328,,,,,
+ucmerced.edu,169.236.10.214,37.3257 (lat) / -120.4999 (long),2196,,,,,
+rice.edu,128.42.207.44,29.7228 (lat) / -95.4251 (long),1332,,,,,
+ku.edu,129.237.135.76,38.9408 (lat) / -95.276 (long),1047,,,,,
+washington.edu,34.168.51.100,45.6056 (lat) / -121.1807 (long),2073,,,,,
+cam.ac.uk,128.232.132.8,51.4964 (lat) / -0.1224 (long),2898,,,,,
+uchile.cl,200.89.76.36,-33.4521 (lat) / -70.6536 (long),4548,,,,,
+must.edu.my,103.6.198.52,3.1256 (lat) / 101.6965 (long),8056,,,,,
+unilag.edu.ng,196.45.48.45,10 (lat) / 8 (long),4583,,,,,
+technion.ac.il,132.68.239.58,31.5 (lat) / 34.75 (long),4836,,,,,
