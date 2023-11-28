@@ -29,6 +29,7 @@ def build_packet():
 
         # TODO: Make the header in a similar way to the ping exercise.
         # Append checksum to the header.
+        # Solution can be implemented in 10 lines of Python code.
         
     #-------------#
     # Fill in end #
@@ -49,6 +50,7 @@ def get_route(hostname):
             #---------------#
 
                 # TODO: Make a raw socket named mySocket
+                # Solution can be implemented in 2 lines of Python code.
 
             #-------------#
             # Fill in end #
@@ -84,6 +86,7 @@ def get_route(hostname):
                 #---------------#
 
                     #TODO: Fetch the icmp type from the IP packet
+                    # Solution can be implemented in 2 lines of Python code.
 
                 #-------------#
                 # Fill in end #

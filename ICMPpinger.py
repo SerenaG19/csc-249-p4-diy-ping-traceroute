@@ -65,6 +65,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         #---------------#
 
             # TODO: Fetch the ICMP header from the IP packet
+            # Soluton can be implemented in 6 lines of Python code.
 
         #-------------#
         # Fill in end #
@@ -74,8 +75,6 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         
         if timeLeft <= 0:
             return "Request timed out."
-
-
 
 def sendOnePing(mySocket, destAddr, ID):
     # Header is type (8), code (8), checksum (16), id (16), sequence (16)
@@ -104,14 +103,10 @@ def sendOnePing(mySocket, destAddr, ID):
     # Both LISTS and TUPLES consist of a number of objects
     # which can be referenced by their position number within the object.
 
-
-
 def doOnePing(destAddr, timeout): 
     icmp = getprotobyname("icmp")
 
-    # SOCK_RAW is a powerful socket type. For more details:	
-    # http://sock-raw.org/papers/sock_raw
-
+    # SOCK_RAW is a powerful socket type. For more details:	http://sock-raw.org/papers/sock_raw
     mySocket = socket(AF_INET, SOCK_RAW, icmp)
 
     myID = os.getpid() & 0xFFFF # Return the current process i 
@@ -126,15 +121,14 @@ def ping(host, timeout=1, repeat=3):
     # timeout=1 means: If one second goes by without a reply from the server,
     # the client assumes that either the client's ping or the server's pong is lost 
     dest = gethostbyname(host)
-    print("Pinging " + host + " [" + dest + "]", repeat, "times using Python:") 
-    print("")
+    print(f"Pinging {host} [{dest}] {repeat} times using Python:")
 
     # Send ping requests to a server separated by approximately one second 
     # Do this only a fixed number of times as determined by 'repeat' argument
     numPings = 1
     while (numPings <= repeat) :
         delay = doOnePing(dest, timeout) 
-        print("Ping", numPings, "RTT", delay)
+        print(f"Ping {numPings} RTT {delay} sec")
         time.sleep(1) # one second 
         numPings += 1
     return delay
