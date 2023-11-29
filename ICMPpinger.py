@@ -50,15 +50,20 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
     timeLeft = timeout
     
     while True:
+        # store time at which we begin the select method
         startedSelect = time.time()
 
+        # select.select() documentation: https://docs.python.org/3/library/select.html 
         whatReady = select.select([mySocket], [], [], timeLeft) 
+
+        # calculate time it takes to select
         howLongInSelect = (time.time() - startedSelect)
         if whatReady[0] == []: # Timeout 
             return "Request timed out."
 
+        # store ttime at which the ping was received
         timeReceived = time.time()
-        recPacket, addr = mySocket.recvfrom(1024)
+        recPacket, addr = mySocket.recvfrom(1024) # receives the packet from the raw socket
 
         #---------------#
         # Fill in start #
@@ -66,6 +71,27 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
             # TODO: Fetch the ICMP header from the IP packet
             # Soluton can be implemented in 6 lines of Python code.
+
+            # Notes:
+            # "Really need to look at other code BEFORE you fill this in."
+            # Need to figure out how / where to find ICMP header from the packet
+            # Reverse-engineer the send operation
+
+            # Ideas:
+            # Extract header using known set length from the beginning of the packet.
+            # From below: type (8), code (8), checksum (16), id (16), sequence (16)
+
+            # Note: mySocket.recvfrom(1024) Returns a bytes object read from an UDP socket and the address of the client socket as a tuple.
+        header = recPacket[0:63] # extract header from packet
+        #print(header)      
+        # IS THIS CORRECT?
+        delay = timeReceived - howLongInSelect
+        if timeLeft > 0:
+                return delay
+
+            # Question: Should this code return the delay? but then wouldn't that prevent the rest of the method from running?
+
+
 
         #-------------#
         # Fill in end #
@@ -136,5 +162,6 @@ def ping(host, timeout=1, repeat=3):
 # Runs program
 if __name__ == "__main__":
     # get target address from command line
-    target = sys.argv[1]
+    #target = sys.argv[1]
+    target = "8.8.8.8"
     ping(target)
