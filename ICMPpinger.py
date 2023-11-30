@@ -82,17 +82,22 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
             # From below: type (8), code (8), checksum (16), id (16), sequence (16)
 
             # Note: mySocket.recvfrom(1024) Returns a bytes object read from an UDP socket and the address of the client socket as a tuple.
-        header = recPacket[0:63] # extract header from packet
+        header = recPacket[0:39] # extract header from packet
         #print(header)      
         # IS THIS CORRECT?
-        delay = timeReceived - howLongInSelect
+        # print(timeLeft)
+        # print(timeReceived)
+        # print(howLongInSelect)
+        delay = howLongInSelect # put it in ms
+        #delay = timeReceived - howLongInSelect
         if timeLeft > 0:
                 return delay
 
             # Question: Should this code return the delay? but then wouldn't that prevent the rest of the method from running?
+            # Other question: Is info needed to calculate RTT embedded in packet structure? See line 11
 
-
-
+            # TODO - verify from ID that the reply you look at is from myID && pull out the time from the message body. one of six lines is a print
+            # TODO look at trace in Wireshark
         #-------------#
         # Fill in end #
         #-------------#
