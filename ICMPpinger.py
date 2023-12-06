@@ -61,7 +61,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         if whatReady[0] == []: # Timeout 
             return "Request timed out."
 
-        # store ttime at which the ping was received
+        # store time at which the ping was received
         timeReceived = time.time()
         recPacket, addr = mySocket.recvfrom(1024) # receives the packet from the raw socket
 
@@ -69,35 +69,18 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fill in start #
         #---------------#
 
-            # TODO: Fetch the ICMP header from the IP packet
-            # Soluton can be implemented in 6 lines of Python code.
+        # unpacl the header, which is between indices 20 - 28 of the received packet
+        unpacked_header = struct.unpack("bbHHh",recPacket[20:28])
 
-            # Notes:
-            # "Really need to look at other code BEFORE you fill this in."
-            # Need to figure out how / where to find ICMP header from the packet
-            # Reverse-engineer the send operation
+        # ensure that the pong being processed is responding to a ping from my computer
+        if os.getpid() & 0xFFFF == unpacked_header[3]:
 
-            # Ideas:
-            # Extract header using known set length from the beginning of the packet.
-            # From below: type (8), code (8), checksum (16), id (16), sequence (16)
+            # access the timestamp stored within the ICMP data portion of the packet
+            unpacked_data = struct.unpack("d",recPacket[28:36])
 
-            # Note: mySocket.recvfrom(1024) Returns a bytes object read from an UDP socket and the address of the client socket as a tuple.
-        header = recPacket[0:39] # extract header from packet
-        #print(header)      
-        # IS THIS CORRECT?
-        # print(timeLeft)
-        # print(timeReceived)
-        # print(howLongInSelect)
-        delay = howLongInSelect # put it in ms
-        #delay = timeReceived - howLongInSelect
-        if timeLeft > 0:
-                return delay
-
-            # Question: Should this code return the delay? but then wouldn't that prevent the rest of the method from running?
-            # Other question: Is info needed to calculate RTT embedded in packet structure? See line 11
-
-            # TODO - verify from ID that the reply you look at is from myID && pull out the time from the message body. one of six lines is a print
-            # TODO look at trace in Wireshark
+            # return the delay from sending to receiving
+            return time.time() - unpacked_data[0]
+        
         #-------------#
         # Fill in end #
         #-------------#
@@ -116,6 +99,12 @@ def sendOnePing(mySocket, destAddr, ID):
     # struct -- Interpret strings as packed binary data
     header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1) 
     data = struct.pack("d", time.time())
+
+    # NOTES ON struct.pack() function
+    #struct.pack(format, v1, v2, ...)
+    #Return a bytes object containing the values v1, v2, … packed according to the format string format. The arguments must match the values required by the format exactly.
+    # see https://docs.python.org/3/library/struct.html for format characters
+    # bbHHh means 2 signed chars (b), two unsigned shorts (H), followed by one short (h)
 
     # Calculate the checksum on the data and the dummy header. 
     myChecksum = checksum(''.join(map(chr, header+data)))
