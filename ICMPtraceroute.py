@@ -118,7 +118,7 @@ def get_route(hostname):
 
                 #-----------------------BEGIN-ATTEMPT-1------------------------#
                 unpacked_header = struct.unpack("bbHHh",recvPacket[20:28])
-                types = unpacked_header[0:8]
+                types = unpacked_header[0]
                 #-------------------------END-ATTEMPT-1------------------------#
 
 
@@ -152,5 +152,6 @@ def get_route(hostname):
 
 # Runs program
 if __name__ == "__main__":
-    target = sys.argv[1]
+    #target = sys.argv[1]
+    target = "8.8.8.8"
     get_route(target)
