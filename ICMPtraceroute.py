@@ -30,6 +30,29 @@ def build_packet():
         # TODO: Make the header in a similar way to the ping exercise.
         # Append checksum to the header.
         # Solution can be implemented in 10 lines of Python code.
+
+        #-----------------------BEGIN-ATTEMPT-1------------------------#
+    # Header is type (8), code (8), checksum (16), id (16), sequence (16)
+    myChecksum = 0
+    
+    ID = os.getpid() & 0xFFFF # Return the current process i 
+
+    # struct -- Interpret strings as packed binary data
+    header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1) 
+    data = struct.pack("d", time.time())
+
+    # Calculate the checksum on the data and the dummy header. 
+    myChecksum = checksum(''.join(map(chr, header+data)))
+
+    # Get the right checksum, and put in the header 
+    if sys.platform == 'darwin':
+        # Convert 16-bit integers from host to network byte order 
+        myChecksum = htons(myChecksum) & 0xffff
+    else:
+        myChecksum = htons(myChecksum)
+
+    header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1) 
+        #-------------------------END-ATTEMPT-1------------------------#
         
     #-------------#
     # Fill in end #
@@ -51,6 +74,11 @@ def get_route(hostname):
 
                 # TODO: Make a raw socket named mySocket
                 # Solution can be implemented in 2 lines of Python code.
+
+            #-----------------------BEGIN-ATTEMPT-1------------------------#
+            icmp = getprotobyname("icmp")
+            mySocket = socket(AF_INET, SOCK_RAW, icmp)
+            #-------------------------END-ATTEMPT-1------------------------#
 
             #-------------#
             # Fill in end #
@@ -87,6 +115,12 @@ def get_route(hostname):
 
                     #TODO: Fetch the icmp type from the IP packet
                     # Solution can be implemented in 2 lines of Python code.
+
+                #-----------------------BEGIN-ATTEMPT-1------------------------#
+                unpacked_header = struct.unpack("bbHHh",recvPacket[20:28])
+                types = unpacked_header[0:8]
+                #-------------------------END-ATTEMPT-1------------------------#
+
 
                 #-------------#
                 # Fill in end #

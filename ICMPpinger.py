@@ -69,7 +69,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fill in start #
         #---------------#
 
-        # unpacl the header, which is between indices 20 - 28 of the received packet
+        # unpack the header, which is between indices 20 - 28 of the received packet
         unpacked_header = struct.unpack("bbHHh",recPacket[20:28])
 
         # ensure that the pong being processed is responding to a ping from my computer
@@ -78,8 +78,8 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
             # access the timestamp stored within the ICMP data portion of the packet
             unpacked_data = struct.unpack("d",recPacket[28:36])
 
-            # return the delay from sending to receiving
-            return time.time() - unpacked_data[0]
+            # return the delay from sending to receiving and round it to 6 decimal spots
+            return round(timeReceived - unpacked_data[0],6)
         
         #-------------#
         # Fill in end #
@@ -157,5 +157,19 @@ def ping(host, timeout=1, repeat=3):
 if __name__ == "__main__":
     # get target address from command line
     #target = sys.argv[1]
-    target = "8.8.8.8"
-    ping(target)
+
+    # Development Testing
+    #target = "8.8.8.8"
+    #target = "127.0.0.1"
+    #ping(target)
+
+    addressList = ["130.111.46.127","169.236.10.214",
+                   "128.42.207.44", "129.237.135.76",
+                   "34.168.51.100", "128.232.132.8",
+                   "200.89.76.36", "103.6.198.52",
+                   "196.45.48.45", "132.68.239.58"]
+
+    for add in addressList:
+        ping(add)
+
+

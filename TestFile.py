@@ -13,3 +13,5 @@ bytes_ob = bytes(bytes('8c04ba7511d10ccb85fa0ccd08004500003c00000000740175f00808
 #print(len(bytes_ob[20:28]))
 #print((bytes_ob[20:28]))
 print(os.getpid() & 0xFFFF)
+
+print(round(0.0234131452345, 6))
