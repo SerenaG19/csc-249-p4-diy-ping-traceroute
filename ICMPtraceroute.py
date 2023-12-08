@@ -117,6 +117,7 @@ def get_route(hostname):
                     # Solution can be implemented in 2 lines of Python code.
 
                 #-----------------------BEGIN-ATTEMPT-1------------------------#
+                # _, _, _, _, _ = struct.unpack("bbHHh",recvPacket[20:28])
                 unpacked_header = struct.unpack("bbHHh",recvPacket[20:28])
                 types = unpacked_header[0]
                 #-------------------------END-ATTEMPT-1------------------------#
@@ -153,5 +154,18 @@ def get_route(hostname):
 # Runs program
 if __name__ == "__main__":
     #target = sys.argv[1]
-    target = "8.8.8.8"
-    get_route(target)
+    #target = "8.8.8.8"
+    #get_route(target)
+
+    addressList = ["130.111.46.127","169.236.10.214",
+                   "128.42.207.44", "129.237.135.76",
+                   "34.168.51.100", "128.232.132.8",
+                   "200.89.76.36", "103.6.198.52",
+                   "196.45.48.45", "132.68.239.58"]
+
+    for add in addressList:
+        get_route(add)
+
+
+
+

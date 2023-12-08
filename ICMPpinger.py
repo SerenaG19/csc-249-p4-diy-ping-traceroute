@@ -72,8 +72,10 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # unpack the header, which is between indices 20 - 28 of the received packet
         unpacked_header = struct.unpack("bbHHh",recPacket[20:28])
 
+        #TODO verify type is ICMP echo reply
+
         # ensure that the pong being processed is responding to a ping from my computer
-        if os.getpid() & 0xFFFF == unpacked_header[3]:
+        if os.getpid() & 0xFFFF == unpacked_header[3] and unpacked_header[0] == 0 : # and unpacked_header[3] == 0
 
             # access the timestamp stored within the ICMP data portion of the packet
             unpacked_data = struct.unpack("d",recPacket[28:36])
