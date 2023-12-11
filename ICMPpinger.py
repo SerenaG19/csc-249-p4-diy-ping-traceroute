@@ -70,18 +70,18 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         #---------------#
 
         # unpack the header, which is between indices 20 - 28 of the received packet
-        unpacked_header = struct.unpack("bbHHh",recPacket[20:28])
+        type, code, checksum, id, sequence = struct.unpack("bbHHh",recPacket[20:28])
 
         #TODO verify type is ICMP echo reply
 
         # ensure that the pong being processed is responding to a ping from my computer
-        if os.getpid() & 0xFFFF == unpacked_header[3] and unpacked_header[0] == 0 : # and unpacked_header[3] == 0
+        if ID == id and type == 0 : # and unpacked_header[3] == 0
 
             # access the timestamp stored within the ICMP data portion of the packet
-            unpacked_data = struct.unpack("d",recPacket[28:36])
+            time_of_sending = struct.unpack("d",recPacket[28:36])
 
             # return the delay from sending to receiving and round it to 6 decimal spots
-            return round(timeReceived - unpacked_data[0],6)
+            return round( ( timeReceived - time_of_sending[0] ) , 6)
         
         #-------------#
         # Fill in end #
@@ -166,10 +166,10 @@ if __name__ == "__main__":
     #ping(target)
 
     addressList = ["130.111.46.127","169.236.10.214",
-                   "128.42.207.44", "129.237.135.76",
-                   "34.168.51.100", "128.232.132.8",
-                   "200.89.76.36", "103.6.198.52",
-                   "196.45.48.45", "132.68.239.58"]
+                   "54.83.192.228", "54.163.225.50",
+                   "130.111.46.127", "128.232.132.8",
+                   "104.17.118.46", "103.6.198.52",
+                   "104.17.192.191", "18.239.168.110"]
 
     for add in addressList:
         ping(add)
