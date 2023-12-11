@@ -1,7 +1,7 @@
 # Attribution: this assignment is based on ICMP Traceroute Lab from Computer Networking: a Top-Down Approach by Jim Kurose and Keith Ross. 
 # It was modified for use in CSC249: Networks at Smith College by R. Jordan Crouser in Fall 2022
 
-from socket import *
+from socket import * #everything is imported
 from ICMPpinger import checksum
 import os
 import sys
@@ -92,12 +92,18 @@ def get_route(hostname):
                 mySocket.sendto(d, (hostname, 0))
                 t= time.time()
                 startedSelect = time.time()
+                
+                #-----troubleshoot-----
+                #print(timeLeft)
+                #---------------------
+
                 whatReady = select.select([mySocket], [], [], timeLeft)
                 howLongInSelect = (time.time() - startedSelect)
 
                 if whatReady[0] == []: # Timeout
                     print(" * * * Request timed out.")
 
+                print("before receive")
                 recvPacket, addr = mySocket.recvfrom(1024)
                 timeReceived = time.time()
                 timeLeft = timeLeft - howLongInSelect
@@ -105,8 +111,14 @@ def get_route(hostname):
                 if timeLeft <= 0:
                     print(" * * * Request timed out.")
 
+
+
+            #-----troubleshoot-----
+            # the select is timing out --> try a printout of timeleft before select.select
+            # exception socket.timeout is a deprecated alias of TimeoutError     
             except timeout:
-                continue
+               #print("In except handeler")
+               continue
 
             else:
                 #---------------#
