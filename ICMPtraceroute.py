@@ -103,7 +103,7 @@ def get_route(hostname):
                 if whatReady[0] == []: # Timeout
                     print(" * * * Request timed out.")
 
-                print("before receive")
+                #print("before receive")
                 recvPacket, addr = mySocket.recvfrom(1024)
                 timeReceived = time.time()
                 timeLeft = timeLeft - howLongInSelect
