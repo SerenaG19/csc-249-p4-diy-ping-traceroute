@@ -1,0 +1,46 @@
+Last login: Tue Dec 12 15:21:48 on ttys011
+(base) owner@owners-MacBook-Pro ~ % cd Documents/CSC249/P4/csc-249-p4-diy-ping-traceroute
+(base) owner@owners-MacBook-Pro csc-249-p4-diy-ping-traceroute % sudo python ICMPpinger.py
+Password:
+Pinging 130.111.46.127 [130.111.46.127] 3 times using Python:
+Ping 1 RTT 0.017114 sec
+Ping 2 RTT 0.016176 sec
+Ping 3 RTT 0.018589 sec
+Pinging 169.236.10.214 [169.236.10.214] 3 times using Python:
+Ping 1 RTT 0.078732 sec
+Ping 2 RTT 0.076987 sec
+Ping 3 RTT 0.0829 sec
+Pinging 54.83.192.228 [54.83.192.228] 3 times using Python:
+Ping 1 RTT 0.018794 sec
+Ping 2 RTT 0.022542 sec
+Ping 3 RTT 0.019776 sec
+Pinging 54.163.225.50 [54.163.225.50] 3 times using Python:
+Ping 1 RTT 0.020349 sec
+Ping 2 RTT 0.017545 sec
+Ping 3 RTT 0.034674 sec
+Pinging 151.101.118.133 [151.101.118.133] 3 times using Python:
+Ping 1 RTT 0.016629 sec
+Ping 2 RTT 0.009224 sec
+Ping 3 RTT 0.011061 sec
+Pinging 128.232.132.8 [128.232.132.8] 3 times using Python:
+Ping 1 RTT 0.106777 sec
+Ping 2 RTT 0.104856 sec
+Ping 3 RTT 0.104052 sec
+Pinging 104.17.118.46 [104.17.118.46] 3 times using Python:
+Ping 1 RTT 0.009018 sec
+Ping 2 RTT 0.008048 sec
+Ping 3 RTT 0.016348 sec
+Pinging 103.6.198.52 [103.6.198.52] 3 times using Python:
+Ping 1 RTT 0.249101 sec
+Ping 2 RTT 0.249868 sec
+Ping 3 RTT 0.265671 sec
+Pinging 104.17.192.191 [104.17.192.191] 3 times using Python:
+Ping 1 RTT 0.009962 sec
+Ping 2 RTT Request timed out. sec
+Ping 3 RTT 0.018155 sec
+Pinging 18.239.168.110 [18.239.168.110] 3 times using Python:
+Ping 1 RTT 0.007144 sec
+Ping 2 RTT 0.016772 sec
+Ping 3 RTT 0.007497 sec
+(base) owner@owners-MacBook-Pro csc-249-p4-diy-ping-traceroute % 
+

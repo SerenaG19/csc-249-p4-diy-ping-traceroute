@@ -1,0 +1,193 @@
+Last login: Tue Dec 12 15:47:15 on ttys006
+(base) owner@owners-MacBook-Pro ~ % cd Documents/CSC249/P4/csc-249-p4-diy-ping-traceroute
+(base) owner@owners-MacBook-Pro csc-249-p4-diy-ping-traceroute % sudo python ICMPtraceroute.py 
+Password:
+ 1 rtt=42 ms 131.229.149.254
+ 2 rtt=37 ms 131.229.11.142
+ 3 rtt=60 ms 131.229.10.104
+ 4 rtt=22 ms 134.241.249.33
+ 5 rtt=27 ms 69.16.1.33
+ 6 rtt=48 ms 18.2.8.89
+ 7 rtt=11 ms 192.5.89.57
+ 8 rtt=22 ms 18.2.0.78
+ 9 rtt=30 ms 130.111.0.126
+ 10 rtt=47 ms 130.111.0.25
+ 11 rtt=32 ms 130.111.46.127
+ 1 rtt=16 ms 131.229.149.254
+ 2 rtt=23 ms 131.229.11.142
+ 3 rtt=37 ms 131.229.10.104
+ 4 rtt=17 ms 134.241.249.33
+ 5 rtt=18 ms 69.16.1.33
+ 6 rtt=17 ms 18.2.8.89
+ 7 rtt=44 ms 192.5.89.254
+ 8 rtt=74 ms 163.253.1.21
+ 9 rtt=85 ms 163.253.2.146
+ 10 rtt=101 ms 163.253.1.211
+ 11 rtt=89 ms 163.253.1.206
+ 12 rtt=89 ms 163.253.2.29
+ 13 rtt=83 ms 163.253.1.250
+ 14 rtt=76 ms 163.253.1.169
+ 15 rtt=85 ms 163.253.1.114
+ 16 rtt=80 ms 137.164.26.200
+ 17 rtt=87 ms 137.164.25.74
+ 18 rtt=89 ms 137.164.25.34
+ 19 rtt=94 ms 137.164.11.95
+ 20 rtt=96 ms 137.164.11.89
+ 21 rtt=84 ms 137.164.11.101
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 25 rtt=79 ms 169.236.10.214
+ 1 rtt=7 ms 131.229.149.254
+ 2 rtt=6 ms 131.229.11.142
+ 3 rtt=24 ms 131.229.10.104
+ 4 rtt=7 ms 134.241.249.33
+ 5 rtt=6 ms 69.16.1.33
+ 6 rtt=5 ms 18.2.8.89
+ 7 rtt=10 ms 192.5.89.57
+ 8 rtt=18 ms 192.5.89.222
+ 9 rtt=20 ms 163.253.1.44
+ 10 rtt=20 ms 163.253.1.116
+ 11 rtt=19 ms 163.253.1.131
+ 12 rtt=23 ms 99.82.179.34
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 17 rtt=23 ms 54.83.192.228
+ 1 rtt=11 ms 131.229.149.254
+ 2 rtt=81 ms 131.229.11.142
+ 3 rtt=35 ms 131.229.10.104
+ 4 rtt=10 ms 134.241.249.33
+ 5 rtt=8 ms 69.16.1.33
+ 6 rtt=13 ms 18.2.8.89
+ 7 rtt=11 ms 192.5.89.57
+ 8 rtt=20 ms 192.5.89.222
+ 9 rtt=21 ms 163.253.1.42
+ 10 rtt=21 ms 163.253.1.116
+ 11 rtt=25 ms 163.253.1.131
+ 12 rtt=28 ms 99.82.179.34
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 17 rtt=28 ms 54.163.225.50
+ 1 rtt=16 ms 131.229.149.254
+ 2 rtt=48 ms 131.229.11.142
+ 3 rtt=24 ms 131.229.10.104
+ 4 rtt=30 ms 134.241.249.33
+ 5 rtt=8 ms 69.16.1.33
+ 6 rtt=8 ms 69.16.0.9
+ 7 rtt=8 ms 38.104.218.13
+ 8 rtt=13 ms 154.54.41.129
+ 9 rtt=9 ms 38.140.158.82
+ 10 rtt=11 ms 151.101.118.133
+ 1 rtt=11 ms 131.229.149.254
+ 2 rtt=32 ms 131.229.11.142
+ 3 rtt=21 ms 131.229.10.104
+ 4 rtt=26 ms 134.241.249.33
+ 5 rtt=14 ms 69.16.1.33
+ 6 rtt=17 ms 18.2.8.89
+ 7 rtt=11 ms 192.5.89.57
+ 8 rtt=18 ms 192.5.89.222
+ 9 rtt=20 ms 163.253.1.42
+ 10 rtt=86 ms 198.71.45.237
+ 11 rtt=99 ms 62.40.98.106
+ 12 rtt=96 ms 62.40.98.64
+ 13 rtt=156 ms 62.40.124.198
+ 14 rtt=102 ms 146.97.33.18
+ 15 rtt=100 ms 146.97.35.246
+ 16 rtt=102 ms 146.97.41.38
+ 17 rtt=103 ms 131.111.7.82
+ 18 rtt=102 ms 193.60.88.6
+ 19 rtt=102 ms 193.60.88.6
+ 20 rtt=112 ms 128.232.128.6
+ 21 rtt=104 ms 128.232.128.10
+ 22 rtt=104 ms 128.232.132.8
+ 1 rtt=16 ms 131.229.149.254
+ 2 rtt=101 ms 131.229.11.142
+ 3 rtt=24 ms 131.229.10.104
+ 4 rtt=5 ms 134.241.249.33
+ 5 rtt=7 ms 69.16.1.33
+ 6 rtt=7 ms 18.2.136.89
+ 7 rtt=9 ms 192.5.89.57
+ 8 rtt=17 ms 206.53.143.9
+ 9 rtt=9 ms 104.17.118.46
+ 1 rtt=8 ms 131.229.149.254
+ 2 rtt=18 ms 131.229.11.142
+ 3 rtt=27 ms 131.229.10.104
+ 4 rtt=6 ms 134.241.249.33
+ 5 rtt=14 ms 69.16.1.33
+ 6 rtt=7 ms 65.175.24.205
+ 7 rtt=12 ms 173.241.131.14
+ 8 rtt=27 ms 129.250.4.102
+ 9 rtt=32 ms 129.250.2.26
+ 10 rtt=81 ms 129.250.3.42
+ 11 rtt=84 ms 129.250.3.82
+ 12 rtt=170 ms 129.250.4.143
+ 13 rtt=176 ms 129.250.5.54
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 15 rtt=268 ms 129.250.2.169
+ 16 rtt=307 ms 129.250.6.25
+ 17 rtt=317 ms 168.143.105.179
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 20 rtt=332 ms 223.28.26.154
+ * * * Request timed out.
+ * * * Request timed out.
+ 21 rtt=301 ms 223.28.35.225
+ * * * Request timed out.
+ * * * Request timed out.
+ 22 rtt=253 ms 210.19.226.122
+ * * * Request timed out.
+ * * * Request timed out.
+ 23 rtt=261 ms 110.4.44.250
+ * * * Request timed out.
+ * * * Request timed out.
+ 24 rtt=306 ms 103.6.198.52
+ 1 rtt=7 ms 131.229.149.254
+ 2 rtt=16 ms 131.229.11.142
+ 3 rtt=27 ms 131.229.10.104
+ 4 rtt=4 ms 134.241.249.33
+ 5 rtt=5 ms 69.16.1.33
+ 6 rtt=7 ms 18.2.136.89
+ 7 rtt=8 ms 192.5.89.57
+ 8 rtt=9 ms 206.53.143.9
+ 9 rtt=7 ms 104.17.192.191
+ 1 rtt=20 ms 131.229.149.254
+ 2 rtt=20 ms 131.229.11.142
+ 3 rtt=15 ms 131.229.10.104
+ 4 rtt=5 ms 134.241.249.33
+ 5 rtt=6 ms 69.16.1.33
+ 6 rtt=7 ms 65.175.24.205
+ 7 rtt=11 ms 89.149.130.30
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ * * * Request timed out.
+ 14 rtt=65 ms 18.239.168.110
+(base) owner@owners-MacBook-Pro csc-249-p4-diy-ping-traceroute % 
