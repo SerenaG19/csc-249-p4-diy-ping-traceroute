@@ -51,6 +51,7 @@ def build_packet():
     else:
         myChecksum = htons(myChecksum)
 
+    # construct the final header, with the previously calculated checksum
     header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, myChecksum, ID, 1) 
         #-------------------------END-ATTEMPT-1------------------------#
         
